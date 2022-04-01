@@ -1,0 +1,14 @@
+version: '3'
+services:
+    app:
+        build: 
+            context: ./app/
+            dockerfile: Dockerfile
+        container_name: YT_APP
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/app
+            
+        restart: always
+        

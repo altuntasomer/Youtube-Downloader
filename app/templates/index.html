@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Downloader</title>
+    <!--  Boostrap Add -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+    <!-- NavBar Add -->
+    {%include "navbar.html"%}
+    
+    <main class="site-main pt-4 pt-sm-5 pb-5">
+        <section class="container mb-4">
+                <div class="row">
+            <div class="col-md-12">
+                <h1 class="h2 mt-2 mb-1 text-primary">Youtube Mp3 Converter</h1>
+                <h2 class="h6">Need to download a youtube video or youtube playlist?</h2>
+                <p>Videoindir.live is a free online youtube converter that can download in any format.</p>
+            </div>
+        </div>
+    </section>
+    <section id="app" class="container mb-5">
+        <div class="row">
+                            <Downloader class="app-downloader"/>
+                    </div>
+    </section>
+    <section class="container home-text-content">
+        <div class="row">
+            <article class="col-md-6 mb-3">
+                <h4 class="h5">Fast and easy to use</h4>
+                <p>There is no simpler and faster youtube converter: you just paste the video url link you want to download on the above field, and a few seconds later you get an video, mp3 or playlist videos in original quality.</p>
+            </article>
+            
+        </div>
+    </section>
+            <section class="home-additional-text-content mt-4 mb-4">
+            <div class="container">
+                <div class="row">
+                    <article class="col-md-12">
+                        <h4 class="mb-4">Why is our Youtube Mp3 converter the best?</h4>
+                        <h5 class="h6">Download your mp3 in one click</h5>
+                        <p>Our Youtube converter can be used with just one click. Paste the url of the youtube video you want to convert to mp3, and just click the "Download" button. The other mp3 converters require several clicks, a selection of format, etc... With our Youtube downloader, it is not the case, it could not be simpler.</p>
+                        <h6>Maximum mp3 audio quality</h6>
+                        <p>The quality of mp3 audio files converted by Mp3 Youtube is always the maximum quality. You get an mp3 file which quality is the same as the audio track of the Youtube video you want to convert. The mp3 file provided by our online converter is thus as light as possible, but always with top audio quality.</p>
+                        <h6>Fast mp3 conversion</h6>
+                        <p>Our online Youtube mp3 converter service is very popular and requires high computing capacity. We are constantly adding new converter servers to our app to enable super fast mp3 downloads.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- Boostrap Javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Javascript File -->
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+</body>
+
+</html>

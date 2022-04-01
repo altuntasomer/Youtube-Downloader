@@ -1,0 +1,22 @@
+#form{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+.hide
+{
+    display: none;
+}
+#div1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video-element{
+    margin-bottom: 10px;
+}
+.download-buttons{
+    margin-left: 30px;
+    font-size: large;
+}
