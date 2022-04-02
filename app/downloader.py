@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, after_this_request, render_template, request, send_file
 import pytube
 from yt_dlp import YoutubeDL
-
+from os import remove
 app = Flask(__name__)
 app.secret_key = 'dev'
 
@@ -40,22 +40,34 @@ def list():
 
 @app.route('/download', methods=['GET', 'POST'])
 def download():
+
     try:
         url = request.form['button']
     except:
         return render_template('index.html')
+
     title = ""
     ydl_opts = {}
     with YoutubeDL(ydl_opts) as ydl:
         
         title = ydl.extract_info(url, download=False).get('title', None)
         
-    
-    ydl_opts = {'outtmpl': 'downloads/%s.mp4'%(title), 'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'}
+    filepath = 'downloads/%s.mp4'%(title)
+
+    ydl_opts = {'outtmpl': filepath, 'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'}
+
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
+
+    @after_this_request
+    def remove_file(response):
+        try:
+            remove(filepath)
+        except:
+            pass
+        return response
     
-    return send_file("downloads/"+title+".mp4", as_attachment=True)
+    return send_file(filepath, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
