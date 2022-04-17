@@ -1,0 +1,24 @@
+name: ssh and build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ssh connection
+        uses: fifsky/ssh-action@master
+        with:
+          user: ${{ secrets.USER }}
+          host: ${{ secrets.IP }}
+          pass: ${{ secrets.PASSWORD }}
+          command: |
+        
+            git clone https://${{ secrets.GH_TOKEN }}@github.com/altuntasomer/Youtube-Downloader.git
+            cd ./Youtube-Downloader
+            bash ./deploy.sh
